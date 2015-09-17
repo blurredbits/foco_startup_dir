@@ -1,0 +1,14 @@
+<header>
+  <h1>
+    <%= @company.name %>
+  </h1>
+
+  <ul class="actions">
+    <li>
+      <%= link_to "Edit Company", edit_company_path(@company), class: "edit" %>
+    </li>
+    <li>
+      <%= link_to "Delete Company", company_path(@company), method: :delete, class: "delete" %>
+    </li>
+  </ul>
+</header>
