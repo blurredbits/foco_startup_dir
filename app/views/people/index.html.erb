@@ -1,0 +1,16 @@
+<header>
+  <h1>People</h1>
+  
+  <ul class="actions">
+    <li>
+      <%= link_to "New Person", new_person_path %>
+    </li>
+  </ul>
+</header>
+
+<div id="companies">
+  <%= @people.each do |person| %>
+    <h2><%= link_to "#{person.first_name} #{person.last_name}", person %></h2>
+    <p><%= person.bio %></p>
+  <% end %>
+</div>

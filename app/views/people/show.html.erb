@@ -1,0 +1,14 @@
+<header>
+  <h1>
+    <%= "#{@person.first_name} #{@person.last_name}" %>
+  </h1>
+
+  <ul class="actions">
+    <li>
+      <%= link_to "Edit Person", edit_person_path(@person), class: "edit" %>
+    </li>
+    <li>
+      <%= link_to "Delete Person", person_path(@person), method: :delete, class: "delete" %>
+    </li>
+  </ul>
+</header>
