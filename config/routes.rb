@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :companies
   resources :people
   resources :offices
-  
+  resources :announcements
+    
 end
