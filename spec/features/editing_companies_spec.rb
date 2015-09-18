@@ -9,6 +9,7 @@ RSpec.feature "User can edit existing companies" do
     click_link "Scout"
     click_link "Edit Company"
   end
+  
   scenario "with valid attributes" do
     fill_in "Name", with: "Scout APM"
     click_button "Update Company"

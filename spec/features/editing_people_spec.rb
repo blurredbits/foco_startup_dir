@@ -9,6 +9,7 @@ RSpec.feature "User can edit existing people" do
     click_link "Mark Morris"
     click_link "Edit Person"
   end
+  
   scenario "with valid attributes" do
     fill_in "Last name", with: "Morrison"
     click_button "Update Person"
