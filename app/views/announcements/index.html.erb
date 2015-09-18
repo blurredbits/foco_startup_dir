@@ -3,13 +3,13 @@
   
   <ul class="actions">
     <li>
-      <%= link_to "New Announcement", new_announcement_path %>
+      <%= link_to "New Announcement", new_announcement_path, class: "new" %>
     </li>
   </ul>
 </header>
 
 <div id="announcements">
-  <%= @announcements.each do |announcement| %>
+  <% @announcements.each do |announcement| %>
     <h2><%= link_to announcement.title, announcement %></h2>
     <p><%= announcement.description %></p>
   <% end %>
