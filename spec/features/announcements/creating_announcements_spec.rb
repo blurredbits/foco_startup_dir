@@ -16,9 +16,9 @@ RSpec.feature "User can create announcements" do
   end
 
   scenario "with invalid attributes" do
-    # fill_in "Title", with: ""
-    # click_button "Create Announcement"
+    fill_in "Title", with: ""
+    click_button "Create Announcement"
 
-    # expect(page).to have_content "Announcement has not been created."
+    expect(page).to have_content "Announcement has not been created."
   end
 end

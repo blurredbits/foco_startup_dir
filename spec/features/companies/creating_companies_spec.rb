@@ -19,6 +19,9 @@ RSpec.feature "Users can create new companies" do
   end
 
   scenario "with invalid attributes" do
-    # add some validations
+    fill_in "Name", with: ""
+
+    click_button "Create Company"
+    expect(page).to have_content "Company has not been created."
   end
 end

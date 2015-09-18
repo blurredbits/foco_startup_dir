@@ -19,6 +19,9 @@ RSpec.feature "User can create office" do
   end
 
   scenario "with invalid attributes" do
-    # add some validations
+    fill_in "Name", with: ""
+
+    click_button "Create Office"
+    expect(page).to have_content "Office has not been created."
   end
 end

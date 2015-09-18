@@ -15,4 +15,11 @@ RSpec.feature "User can create new person" do
 
     expect(page).to have_content "Person has been created."
   end
+
+  scenario "with invalid attributes" do
+    fill_in "First name", with: ""
+
+    click_button "Create Person"
+    expect(page).to have_content "Person has not been created."
+  end
 end
