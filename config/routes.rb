@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "companies#index"
+  root "static#index"
 
   resources :companies
   resources :people

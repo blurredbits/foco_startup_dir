@@ -4,7 +4,7 @@ RSpec.feature "Users can delete companies" do
   scenario "successfully" do
     FactoryGirl.create(:company, name: "Scout")
 
-    visit "/"
+    visit "/companies"
     click_link "Scout"
     click_link "Delete Company"
 

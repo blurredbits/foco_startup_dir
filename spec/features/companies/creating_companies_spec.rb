@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Users can create new companies" do
   before do
-    visit "/"
+    visit "/companies"
     click_link "New Company"
   end
 

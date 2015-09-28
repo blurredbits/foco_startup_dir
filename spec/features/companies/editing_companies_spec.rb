@@ -5,7 +5,7 @@ RSpec.feature "User can edit existing companies" do
   before do
     FactoryGirl.create(:company, name: "Scout")
 
-    visit "/"
+    visit "/companies"
     click_link "Scout"
     click_link "Edit Company"
   end
