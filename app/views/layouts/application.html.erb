@@ -59,7 +59,17 @@
       </div>
     <% end %>
 
-    <%= yield %>
+    <div class="container" id="content">
+      <ul class="nav nav-pills">
+        <li><%= link_to "Announcements", announcements_path %><li>
+        <li><%= link_to "People", people_path %><li>
+        <li><%= link_to "Companies", companies_path %><li>
+        <li><%= link_to "Offices", offices_path %><li>
+      </ul>
+      
+      <%= yield %>
+    </div>
+    
   </div>
 </body>
 </html>
