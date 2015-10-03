@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "User can edit existing announcements" do
   
+  let(:creator) { FactoryGirl.create(:user) }
+
   before do
-    FactoryGirl.create(:announcement, title: "Code & Coffee")
+    FactoryGirl.create(:announcement, creator: creator, title: "Code & Coffee")
 
     visit "/announcements"
     click_link "Code & Coffee"

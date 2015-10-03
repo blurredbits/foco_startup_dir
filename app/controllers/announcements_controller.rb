@@ -15,6 +15,7 @@ class AnnouncementsController < ApplicationController
 
   def create
     @announcement = Announcement.new(announcement_params)
+    @announcement.creator = current_user
 
     if @announcement.save
       flash[:notice] = "Announcement has been created."

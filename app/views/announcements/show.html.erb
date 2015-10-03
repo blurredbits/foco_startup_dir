@@ -1,14 +1,27 @@
 <header>
-  <h1>
-    <%= @announcement.title %>
-  </h1>
+  <div id="announcement">
+    <h1>
+      <%= @announcement.title %>
+    </h1>
 
-  <ul class="actions">
-    <li>
-      <%= link_to "Edit Announcement", edit_announcement_path(@announcement), class: "edit" %>
-    </li>
-    <li>
-      <%= link_to "Delete Announcement", announcement_path(@announcement), method: :delete, class: "delete" %>
-    </li>
-  </ul>
+    <table id="attributes">
+      <tr>
+        <th>Created by:</th>
+        <td><%= @announcement.creator.email %></td>
+      </tr>
+      <tr>
+        <th>Created:</th>
+        <td><%= time_ago_in_words(@announcement.created_at) %> ago</td>
+      </tr>
+    </table>
+
+    <ul class="actions">
+      <li>
+        <%= link_to "Edit Announcement", edit_announcement_path(@announcement), class: "edit" %>
+      </li>
+      <li>
+        <%= link_to "Delete Announcement", announcement_path(@announcement), method: :delete, class: "delete" %>
+      </li>
+    </ul>
+  </div>
 </header>
