@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "User can create announcements" do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, :admin) }
 
   before do
     login_as(user)
