@@ -19,9 +19,11 @@
       <li>
         <%= link_to "Edit Announcement", edit_announcement_path(@announcement), class: "edit" %>
       </li>
-      <li>
-        <%= link_to "Delete Announcement", admin_announcement_path(@announcement), method: :delete, class: "delete" %>
-      </li>
+      <% admins_only do %>
+        <li>
+          <%= link_to "Delete Announcement", admin_announcement_path(@announcement), method: :delete, class: "delete" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </header>

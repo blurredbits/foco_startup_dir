@@ -1,11 +1,12 @@
 <header>
   <h1>Announcements</h1>
-  
-  <ul class="actions">
-    <li>
-      <%= link_to "New Announcement", new_admin_announcement_path, class: "new" %>
-    </li>
-  </ul>
+  <% admins_only do %>
+    <ul class="actions">
+      <li>
+        <%= link_to "New Announcement", new_admin_announcement_path, class: "new" %>
+      </li>
+    </ul>
+  <% end %>
 </header>
 
 <div id="announcements">
