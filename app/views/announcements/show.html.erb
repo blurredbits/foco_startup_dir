@@ -20,7 +20,7 @@
         <%= link_to "Edit Announcement", edit_announcement_path(@announcement), class: "edit" %>
       </li>
       <li>
-        <%= link_to "Delete Announcement", announcement_path(@announcement), method: :delete, class: "delete" %>
+        <%= link_to "Delete Announcement", admin_announcement_path(@announcement), method: :delete, class: "delete" %>
       </li>
     </ul>
   </div>
