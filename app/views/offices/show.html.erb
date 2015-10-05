@@ -7,8 +7,10 @@
     <li>
       <%= link_to "Edit Office", edit_office_path(@office), class: "edit" %>
     </li>
-    <li>
-      <%= link_to "Delete Office", office_path(@office), method: :delete, class: "delete" %>
-    </li>
+    <% admins_only do %>
+      <li>
+        <%= link_to "Delete Office", admin_office_path(@office), method: :delete, class: "delete" %>
+      </li>
+    <% end %>
   </ul>
 </header>

@@ -1,8 +1,14 @@
 require "rails_helper"
 
 RSpec.feature "Users can delete companies" do
+
+  before do
+    login_as(FactoryGirl.create(:user, :admin))
+  end
+
+  let(:creator) { FactoryGirl.create(:user)}
   scenario "successfully" do
-    FactoryGirl.create(:person, first_name: "Mark", last_name: "Morris")
+    FactoryGirl.create(:person, creator: creator, first_name: "Mark", last_name: "Morris")
 
     visit "/people"
     click_link "Mark Morris"

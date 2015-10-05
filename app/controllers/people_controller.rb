@@ -9,22 +9,6 @@ class PeopleController < ApplicationController
   def show
   end
 
-  def new
-    @person = Person.new
-  end
-
-  def create
-    @person = Person.new(person_params)
-
-    if @person.save
-      flash[:notice] = "Person has been created."
-      redirect_to @person
-    else
-      flash.now[:alert] = "Person has not been created."
-      render "new"
-    end
-  end
-
   def edit
   end
 
@@ -36,13 +20,6 @@ class PeopleController < ApplicationController
       flash.now[:alert] = "Person has not been updated."
       render "edit"
     end
-  end
-
-  def destroy
-    @person.destroy
-
-    flash[:notice] = "Person has been deleted."
-    redirect_to people_path
   end
 
   private

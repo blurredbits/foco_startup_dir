@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "User can edit existing companies" do
   
+  let(:creator) { FactoryGirl.create(:user) }
   before do
-    FactoryGirl.create(:company, name: "Scout")
+    FactoryGirl.create(:company, creator: creator, name: "Scout")
 
     visit "/companies"
     click_link "Scout"

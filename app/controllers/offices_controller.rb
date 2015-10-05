@@ -9,22 +9,6 @@ class OfficesController < ApplicationController
   def show
   end
 
-  def new
-    @office = Office.new
-  end
-
-  def create
-    @office = Office.new(office_params)
-
-    if @office.save
-      flash[:notice] = "Office has been created."
-      redirect_to @office
-    else
-      flash.now[:alert] = "Office has not been created."
-      render "new"
-    end
-  end
-
   def edit
   end
 
@@ -36,13 +20,6 @@ class OfficesController < ApplicationController
       flash.now[:alert] = "Office has not been updated."
       render "edit"
     end
-  end
-
-  def destroy
-    @office.destroy
-
-    flash[:notice] = "Office has been deleted."
-    redirect_to offices_path
   end
 
   private

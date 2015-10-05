@@ -7,8 +7,10 @@
     <li>
       <%= link_to "Edit Person", edit_person_path(@person), class: "edit" %>
     </li>
-    <li>
-      <%= link_to "Delete Person", person_path(@person), method: :delete, class: "delete" %>
-    </li>
+    <% admins_only do %>
+      <li>
+        <%= link_to "Delete Person", admin_person_path(@person), method: :delete, class: "delete" %>
+      </li>
+    <% end %>
   </ul>
 </header>

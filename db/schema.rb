@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003185852) do
+ActiveRecord::Schema.define(version: 20151005201134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,10 @@ ActiveRecord::Schema.define(version: 20151003185852) do
     t.string   "website"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "creator_id"
   end
+
+  add_index "companies", ["creator_id"], name: "index_companies_on_creator_id", using: :btree
 
   create_table "offices", force: :cascade do |t|
     t.string   "name"
@@ -43,7 +46,10 @@ ActiveRecord::Schema.define(version: 20151003185852) do
     t.string   "website"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "creator_id"
   end
+
+  add_index "offices", ["creator_id"], name: "index_offices_on_creator_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
@@ -51,7 +57,10 @@ ActiveRecord::Schema.define(version: 20151003185852) do
     t.text     "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
   end
+
+  add_index "people", ["creator_id"], name: "index_people_on_creator_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -73,4 +82,7 @@ ActiveRecord::Schema.define(version: 20151003185852) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "announcements", "users", column: "creator_id"
+  add_foreign_key "companies", "users", column: "creator_id"
+  add_foreign_key "offices", "users", column: "creator_id"
+  add_foreign_key "people", "users", column: "creator_id"
 end

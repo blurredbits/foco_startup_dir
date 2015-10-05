@@ -1,14 +1,29 @@
 <header>
-  <h1>
-    <%= @company.name %>
-  </h1>
+  <div id="company">
+    <h1>
+      <%= @company.name %>
+    </h1>
 
-  <ul class="actions">
-    <li>
-      <%= link_to "Edit Company", edit_company_path(@company), class: "edit" %>
-    </li>
-    <li>
-      <%= link_to "Delete Company", company_path(@company), method: :delete, class: "delete" %>
-    </li>
-  </ul>
+    <table id="attributes">
+      <tr>
+        <th>Created by:</th>
+        <td><%= @company.creator.email %></td>
+      </tr>
+      <tr>
+        <th>Created:</th>
+        <td><%= time_ago_in_words(@company.created_at) %> ago</td>
+      </tr>
+    </table>
+
+    <ul class="actions">
+      <li>
+        <%= link_to "Edit Company", edit_company_path(@company), class: "edit" %>
+      </li>
+      <% admins_only do %>
+        <li>
+          <%= link_to "Delete Company", admin_company_path(@company), method: :delete, class: "delete" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </header>

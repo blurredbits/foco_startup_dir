@@ -1,8 +1,11 @@
 require "rails_helper"
 
 RSpec.feature "Users can view a company" do
+
+  let(:creator) { FactoryGirl.create(:user) }
+
   scenario "with the company details" do
-    company = FactoryGirl.create(:company, name: "Scout")
+    company = FactoryGirl.create(:company, creator: creator, name: "Scout")
 
     visit "/companies"
     click_link "Scout"

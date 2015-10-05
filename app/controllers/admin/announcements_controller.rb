@@ -17,16 +17,6 @@ class Admin::AnnouncementsController < Admin::ApplicationController
     end
   end
 
-  def update
-    if @announcement.update(announcement_params)
-      flash[:notice] = "Announcement has been updated."
-      redirect_to @announcement
-    else
-      flash.now[:alert] = "Announcement has not been updated."
-      render "edit"
-    end
-  end
-
   def destroy
     @announcement = Announcement.find(params[:id])
     @announcement.destroy

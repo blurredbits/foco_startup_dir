@@ -1,11 +1,12 @@
 <header>
-  <h1>People</h1>
-  
-  <ul class="actions">
-    <li>
-      <%= link_to "New Person", new_person_path, class: "new" %>
-    </li>
-  </ul>
+  <h1>People</h1> 
+  <% admins_only do %>
+    <ul class="actions">
+      <li>
+        <%= link_to "New Person", new_admin_person_path, class: "new" %>
+      </li>
+    </ul>
+  <% end %>
 </header>
 
 <div id="people">

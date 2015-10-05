@@ -2,7 +2,10 @@ require "rails_helper"
 
 RSpec.feature "User can create office" do
 
+  let(:user) { FactoryGirl.create(:user, :admin) }
+
   before do
+    login_as(user)
     visit "/offices"
     click_link "New Office"
   end

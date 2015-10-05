@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "Users can create new companies" do
+
+  let(:user) { FactoryGirl.create(:user, :admin) }
+
   before do
+    login_as(user)
     visit "/companies"
     click_link "New Company"
   end

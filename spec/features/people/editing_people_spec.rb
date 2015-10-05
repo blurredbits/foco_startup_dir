@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "User can edit existing people" do
+
+  let(:creator) { FactoryGirl.create(:user) }
   
   before do
-    FactoryGirl.create(:person, first_name: "Mark", last_name: "Morris")
+    FactoryGirl.create(:person, creator: creator, first_name: "Mark", last_name: "Morris")
 
     visit "/people"
     click_link "Mark Morris"
