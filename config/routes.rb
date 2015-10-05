@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :companies, only: [:new, :create, :destroy]
     resources :offices, only: [:new, :create, :destroy]
     resources :people, only: [:new, :create, :destroy]
+    resources :users
   end
 
   devise_for :users
